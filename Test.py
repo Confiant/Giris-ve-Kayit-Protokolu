@@ -60,3 +60,23 @@ while True:
             pass
         print("Parolalar Eşleşmiyor!")
         break
+    
+    elif cevap == "2":
+
+        try:
+
+            girisAdi         = input("Kullanıcı Adı    : ")
+            girisSifre       = input("Parola           : ")
+
+            if girisAdi == kullaniciAdi and girisSifre == parola:
+                time.sleep(2)
+                print("Giriş Başarılı!")
+                break
+            else:
+                time.sleep(1)
+                print("Giriş Başarısız!")
+
+        except NameError:
+            time.sleep(0.5)
+            print("\nLütfen ilk önce kayıt olunuz!\n")
+            input("Devam etmek için 'Enter'e basın...")
