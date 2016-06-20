@@ -15,22 +15,20 @@ import time
 # döngü oluşturuluyor
 while True:
 
-	# gösterilecek metin basılıyor
+    # gösterilecek metin basılıyor
     print(
-    """
+        """
+        Hoşgeldiniz...
+        Kayıt Olmak için    (1)
+        Giriş Yapmak için   (2)
+        Hesap Makinesi için (3)
+        Çıkış Yapmak için   (Q)
 
-    Hoşgeldiniz...
-    Kayıt Olmak için    (1)
-    Giriş Yapmak için   (2)
-    Hesap Makinesi için (3)
-    Çıkış Yapmak için   (Q)
-    
-	"""
+        """
     )
 
     # kullanıcıdan cevap isteniyor
     cevap = input("Lütfen yapmak istediğiniz işlem numarasını girin: ")
-
 
     # eğer kullanıcı çıkmak isterse
     if cevap == "q" or cevap == "Q":
@@ -39,12 +37,11 @@ while True:
     # eğer kullanıcı kayıt olmak isterse
     elif cevap == "1":
         time.sleep(1)
-        kullaniciAdi    = input("Kullanıcı Adı Belirleyiniz       : ")
-        parola          = input("Parola belirleyiniz              : ")
-        parolaKontrol   = input("Lütfen Parolayı Tekrar giriniz   : ")
-        isim            = input("İsminizi Giriniz                 : ")
-        soyisim         = input("Soyisminizi giriniz              : ")
-
+        kullaniciAdi = input("Kullanıcı Adı Belirleyiniz       : ")
+        parola = input("Parola belirleyiniz              : ")
+        parolaKontrol = input("Lütfen Parolayı Tekrar giriniz   : ")
+        isim = input("İsminizi Giriniz                 : ")
+        soyisim = input("Soyisminizi giriniz              : ")
 
         # eğer kullanıcı istenilenleri girmezse
         if not kullaniciAdi:
@@ -64,63 +61,56 @@ while True:
             break
 
         # eğer kullanıcının parolası uygun ise
-        elif len(parola) in range(3,16):
+        elif len(parola) in range(3, 16):
             pass
         else:
             print("Parola 3 ile 16 karakter arasında olmalıdır!")
-
 
         # kullanıcının parolası kontrol ediliyor
         if parolaKontrol == parola:
             # parola doğru ise
             print("\nKayıt Başarılı!")
             input("Devam etmek için 'Enter'e basın...")
-            time.sleep(1)
         # parola doğru değil ise
         else:
             print("Parolalar Eşleşmiyor!")
 
     # eğer kullanıcı giriş yapmak isterse
     elif cevap == "2":
-        time.sleep(1)
 
         # kullanıcının girdiğin bilgiler kontrol ediliyor
         try:
 
-            girisAdi         = input("Kullanıcı Adı    : ")
-            girisSifre       = input("Parola           : ")
+            girisAdi   = input("Kullanıcı Adı    : ")
+            girisSifre = input("Parola           : ")
 
             # eğer kullanıcının girdiği bilgiler uyuşuyorsa
             if girisAdi == kullaniciAdi and girisSifre == parola:
-                time.sleep(2)
                 print("\nGiriş Başarılı!")
                 input("Devam etmek için 'Enter'e basın...")
-                time.sleep(1)
 
             # eğer kullanıcın girdiği bilgiler uyuşmuyorsa
             else:
-                time.sleep(1)
                 print("Giriş Başarısız!")
 
         # girilen bilgilerde hata varsa
         except NameError:
-            time.sleep(0.5)
             print("\nLütfen ilk önce kayıt olunuz!\n")
             input("Devam etmek için 'Enter'e basın...")
 
 
     # eğer kulllanıcı hesap makinesi isterse
     elif cevap == "3":
-        time.sleep(1)
         try:
 
             if girisAdi == kullaniciAdi and girisSifre == parola:
-                time.sleep(2)
                 pass
             else:
                 break
+
         except NameError:
             print("Lütfen ilk önce giriş yapınız!")
+            continue
 
         # toplama fonksiyonu oluşturuluyor
         def toplama():
@@ -130,8 +120,8 @@ while True:
 
                 soru1 = int(input("1.Sayıyı girin: "))
                 soru2 = int(input("2.Sayıyı girin: "))
-                print("-"*17)
-                print(soru1,"+",soru2,"=",soru1 + soru2)
+                print("-" * 17)
+                print(soru1, "+", soru2, "=", soru1 + soru2)
 
             # hata varsa kullanıcıya bildiriliyor
             except ValueError:
@@ -146,8 +136,8 @@ while True:
 
                 soru1 = int(input("1.Sayıyı girin: "))
                 soru2 = int(input("2.Sayıyı girin: "))
-                print("-"*17)
-                print(soru1,"-",soru2,"=",soru1 - soru2)
+                print("-" * 17)
+                print(soru1, "-", soru2, "=", soru1 - soru2)
 
             except ValueError:
                 print("Lütfen sadece sayı girin!!")
@@ -160,8 +150,8 @@ while True:
 
                 soru1 = int(input("1.Sayıyı girin: "))
                 soru2 = int(input("2.Sayıyı girin: "))
-                print("-"*17)
-                print(soru1,"x",soru2,"=",soru1 * soru2)
+                print("-" * 17)
+                print(soru1, "x", soru2, "=", soru1 * soru2)
 
             except ValueError:
                 print("Lütfen sadece sayı girin!!")
@@ -174,8 +164,8 @@ while True:
 
                 soru1 = int(input("1.Sayıyı girin: "))
                 soru2 = int(input("2.Sayıyı girin: "))
-                print("-"*17)
-                print(soru1,"/",soru2,"=",soru1 / soru2)
+                print("-" * 17)
+                print(soru1, "/", soru2, "=", soru1 / soru2)
 
             except ValueError:
                 print("Lütfen sadece sayı girin!!")
@@ -184,20 +174,16 @@ while True:
             return
 
         while True:
-        
+
             # işlem sıraları belitiliyor
-            topla   = "\nToplama işelmi için             (1)"
-            çıkarma = "\nÇıkarma işlemi için             (2)"
-            çarpma  = "\nÇarpma işlemi için              (3)"
-            bölme   = "\nBölme işlemi için               (4)"
-            çıkış   = "\nHesap makinesinden çıkmak için  (Q)"
+            topla   = "\nToplama işlemi için            (1)"
+            çıkarma = "\nÇıkarma işlemi için            (2)"
+            çarpma  = "\nÇarpma işlemi için             (3)"
+            bölme   = "\nBölme işlemi için              (4)"
+            çıkış   = "\nHesap makinesinden çıkmak için (Q)"
 
             # işlemler ekrana basılıyor
-            print(topla)
-            print(çıkarma)
-            print(çarpma)
-            print(bölme)
-            print(çıkış)
+            print(topla, çıkarma, çarpma, bölme, çıkış, end="\n")
 
             # hangi işlemin yapılmak istendiği soruluyor
             soru = input("\nHangi işlemi yapmak istiyorsunuz: ")
@@ -206,21 +192,15 @@ while True:
                 break
             elif soru == "1":
                 toplama()
-                time.sleep(1)
                 input("Devam etmek için 'Enter'e basın...")
-                time.sleep(1)
             elif soru == "2":
                 cikarma()
-                time.sleep(1)
                 input("Devam etmek için 'Enter'e basın...")
-                time.sleep(1)
             elif soru == "3":
                 carpma()
-                time.sleep(1)
                 input("Devam etmek için 'Enter'e basın...")
-                time.sleep(1)
             elif soru == "4":
                 bolme()
-                time.sleep(1)
                 input("Devam etmek için 'Enter'e basın...")
-                time.sleep(1)
+            else:
+                print("Hatalı karakter kullanımı!")
